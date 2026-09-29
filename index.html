@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bean Coffee Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                ☕ Brew<span>&</span>Bean
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="cart-btn" onclick="openCart()">
+                🛒 <span id="cart-count">0</span>
+            </button>
+
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO BREW & BEAN</p>
+
+            <h1>
+                Your Perfect Cup,
+                <span>Every Time.</span>
+            </h1>
+
+            <p>
+                Freshly roasted coffee, delicious food and a cozy
+                atmosphere made for good moments.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="btn">Explore Menu</a>
+                <a href="#about" class="btn btn-outline">Our Story</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features">
+
+        <div class="feature">
+            <div class="feature-icon">☕</div>
+            <h3>Fresh Coffee</h3>
+            <p>Premium beans roasted fresh for the perfect taste.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🥐</div>
+            <h3>Fresh Bakery</h3>
+            <p>Delicious pastries and snacks made fresh every day.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">❤️</div>
+            <h3>Made With Love</h3>
+            <p>Every cup is prepared with care and passion.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+
+        <div class="section-heading">
+            <p>OUR MENU</p>
+            <h2>Popular Favorites</h2>
+            <span>
+                Discover our selection of freshly prepared drinks
+                and delicious treats.
+            </span>
+        </div>
+
+        <div class="category-buttons">
+            <button class="category active" onclick="filterMenu('all', this)">
+                All
+            </button>
+
+            <button class="category" onclick="filterMenu('coffee', this)">
+                Coffee
+            </button>
+
+            <button class="category" onclick="filterMenu('tea', this)">
+                Tea
+            </button>
+
+            <button class="category" onclick="filterMenu('food', this)">
+                Food
+            </button>
+        </div>
+
+
+        <div class="menu-grid">
+
+            <!-- Coffee -->
+            <div class="menu-card" data-category="coffee">
+
+                <div class="menu-image coffee-image">
+                    ☕
+                </div>
+
+                <div class="menu-info">
+                    <h3>Classic Cappuccino</h3>
+                    <p>Espresso, steamed milk and creamy foam.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹160</strong>
+                        <button onclick="addToCart('Classic Cappuccino', 160)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card" data-category="coffee">
+
+                <div class="menu-image coffee-image">
+                    ☕
+                </div>
+
+                <div class="menu-info">
+                    <h3>Café Latte</h3>
+                    <p>Rich espresso blended with smooth steamed milk.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹180</strong>
+                        <button onclick="addToCart('Cafe Latte', 180)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card" data-category="coffee">
+
+                <div class="menu-image coffee-image">
+                    ☕
+                </div>
+
+                <div class="menu-info">
+                    <h3>Mocha</h3>
+                    <p>Espresso, chocolate and creamy steamed milk.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹200</strong>
+                        <button onclick="addToCart('Mocha', 200)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Tea -->
+            <div class="menu-card" data-category="tea">
+
+                <div class="menu-image tea-image">
+                    🍵
+                </div>
+
+                <div class="menu-info">
+                    <h3>Green Tea</h3>
+                    <p>Refreshing and light premium green tea.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹120</strong>
+                        <button onclick="addToCart('Green Tea', 120)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card" data-category="tea">
+
+                <div class="menu-image tea-image">
+                    🫖
+                </div>
+
+                <div class="menu-info">
+                    <h3>Masala Chai</h3>
+                    <p>Traditional Indian tea with aromatic spices.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹100</strong>
+                        <button onclick="addToCart('Masala Chai', 100)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Food -->
+            <div class="menu-card" data-category="food">
+
+                <div class="menu-image food-image">
+                    🥐
+                </div>
+
+                <div class="menu-info">
+                    <h3>Butter Croissant</h3>
+                    <p>Flaky, buttery and freshly baked.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹140</strong>
+                        <button onclick="addToCart('Butter Croissant', 140)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card" data-category="food">
+
+                <div class="menu-image food-image">
+                    🍰
+                </div>
+
+                <div class="menu-info">
+                    <h3>Chocolate Cake</h3>
+                    <p>Soft chocolate cake with rich chocolate cream.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹220</strong>
+                        <button onclick="addToCart('Chocolate Cake', 220)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="menu-card" data-category="food">
+
+                <div class="menu-image food-image">
+                    🥪
+                </div>
+
+                <div class="menu-info">
+                    <h3>Veg Sandwich</h3>
+                    <p>Fresh vegetables, cheese and special sauce.</p>
+
+                    <div class="menu-bottom">
+                        <strong>₹180</strong>
+                        <button onclick="addToCart('Veg Sandwich', 180)">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+
+        <div class="about-image">
+            <div class="coffee-cup">
+                ☕
+            </div>
+        </div>
+
+        <div class="about-content">
+
+            <p class="section-label">OUR STORY</p>
+
+            <h2>More Than Just Coffee</h2>
+
+            <p>
+                Brew & Bean started with a simple idea:
+                create a place where people can slow down,
+                enjoy great coffee and connect with each other.
+            </p>
+
+            <p>
+                We carefully select quality coffee beans and
+                prepare every drink with passion. Whether you
+                are meeting friends, working or simply relaxing,
+                our café is your place.
+            </p>
+
+            <a href="#contact" class="btn">Visit Us</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+
+        <div class="section-heading">
+            <p>OUR SPACE</p>
+            <h2>Inside Brew & Bean</h2>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <span>☕</span>
+                <p>Fresh Coffee</p>
+            </div>
+
+            <div class="gallery-item">
+                <span>🥐</span>
+                <p>Fresh Bakery</p>
+            </div>
+
+            <div class="gallery-item">
+                <span>🪑</span>
+                <p>Cozy Seating</p>
+            </div>
+
+            <div class="gallery-item">
+                <span>🌿</span>
+                <p>Relaxing Space</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <div class="section-heading">
+            <p>GET IN TOUCH</p>
+            <h2>Visit Our Café</h2>
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <div class="contact-item">
+                    <span>📍</span>
+                    <div>
+                        <h3>Address</h3>
+                        <p>123 Coffee Street, Your City</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span>📞</span>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <div>
+                        <h3>Email</h3>
+                        <p>hello@brewandbean.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span>🕐</span>
+                    <div>
+                        <h3>Opening Hours</h3>
+                        <p>Mon - Sun: 8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+
+                <input type="text" id="name" placeholder="Your Name" required>
+
+                <input type="email" id="email" placeholder="Your Email" required>
+
+                <input type="text" id="subject" placeholder="Subject" required>
+
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Cart -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()">
+
+        <div class="cart" onclick="event.stopPropagation()">
+
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button onclick="closeCart()">✕</button>
+            </div>
+
+            <div id="cart-items">
+                <p class="empty-cart">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-footer">
+
+                <div class="total">
+                    <span>Total</span>
+                    <strong>₹<span id="cart-total">0</span></strong>
+                </div>
+
+                <button class="checkout-btn" onclick="checkout()">
+                    Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <div class="logo">
+                    ☕ Brew<span>&</span>Bean
+                </div>
+
+                <p>
+                    Great coffee. Good food.
+                    Better moments.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div>
+                <h3>Follow Us</h3>
+                <p>Instagram</p>
+                <p>Facebook</p>
+                <p>Twitter</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Brew & Bean Coffee Shop. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
